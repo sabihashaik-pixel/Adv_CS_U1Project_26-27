@@ -1,0 +1,386 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #0b1220;
+    color: #f8fafc;
+    min-height: 100vh;
+    padding: 30px 20px;
+}
+
+.app-container {
+    max-width: 850px;
+    margin: auto;
+}
+
+/* NAVIGATION */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0 30px;
+    border-bottom: 1px solid #263348;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand-icon {
+    background: #173b34;
+    padding: 12px;
+    border-radius: 12px;
+    font-size: 22px;
+}
+
+.brand h2 {
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+
+.brand h2 span {
+    color: #34d399;
+}
+
+.brand p {
+    font-size: 9px;
+    color: #94a3b8;
+    letter-spacing: 2px;
+    margin-top: 4px;
+}
+
+.status {
+    font-size: 10px;
+    color: #6ee7b7;
+    background: #12352e;
+    padding: 9px 12px;
+    border-radius: 20px;
+}
+
+/* HERO */
+
+.hero {
+    text-align: center;
+    padding: 65px 10px 35px;
+}
+
+.eyebrow {
+    color: #34d399;
+    font-size: 11px;
+    letter-spacing: 2px;
+    font-weight: 700;
+    margin-bottom: 18px;
+}
+
+.hero h1 {
+    font-size: clamp(30px, 6vw, 48px);
+    line-height: 1.15;
+    font-weight: 800;
+}
+
+.hero h1 span {
+    color: #34d399;
+}
+
+.hero-description {
+    color: #94a3b8;
+    font-size: 14px;
+    line-height: 1.7;
+    max-width: 470px;
+    margin: 18px auto 0;
+}
+
+/* MAIN CARD */
+
+.checker-card {
+    background: #131f30;
+    border: 1px solid #2b3b51;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
+}
+
+.card-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.card-heading h2 {
+    font-size: 19px;
+}
+
+.card-heading p {
+    color: #94a3b8;
+    font-size: 12px;
+    margin-top: 7px;
+}
+
+.lock-icon {
+    font-size: 23px;
+}
+
+.checker-card label {
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    color: #94a3b8;
+    letter-spacing: 1.5px;
+    margin-bottom: 10px;
+}
+
+.input-wrapper input {
+    width: 100%;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #40516a;
+    background: #0b1220;
+    color: #f8fafc;
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+    transition: border 0.2s, box-shadow 0.2s;
+}
+
+.input-wrapper input:focus {
+    border-color: #34d399;
+    box-shadow: 0 0 0 3px rgba(52, 211, 153, 0.12);
+}
+
+.input-wrapper input::placeholder {
+    color: #64748b;
+}
+
+/* BUTTON */
+
+button {
+    width: 100%;
+    padding: 15px;
+    margin-top: 18px;
+    background: #10b981;
+    color: #06251d;
+    border: none;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+
+button span {
+    margin-left: 8px;
+}
+
+button:hover {
+    background: #34d399;
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* RESULT */
+
+.result-panel {
+    margin-top: 25px;
+    background: #0b1220;
+    border: 1px solid #263348;
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.result-label {
+    color: #64748b;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    margin-bottom: 10px;
+}
+
+#result {
+    color: #e2e8f0;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* INFORMATION CARDS */
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.info-card {
+    background: #131f30;
+    border: 1px solid #263348;
+    border-radius: 15px;
+    padding: 22px;
+}
+
+.info-icon {
+    color: #34d399;
+    font-size: 25px;
+    margin-bottom: 15px;
+}
+
+.info-card h3 {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.info-card p {
+    color: #94a3b8;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.coming-soon {
+    display: inline-block;
+    margin-top: 15px;
+    font-size: 9px;
+    letter-spacing: 1px;
+    color: #fbbf24;
+}
+
+/* FOOTER */
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 35px;
+    padding: 20px 0;
+    border-top: 1px solid #263348;
+    color: #64748b;
+    font-size: 10px;
+}
+
+/* MOBILE RESPONSIVENESS */
+
+@media (max-width: 550px) {
+    body {
+        padding: 18px 14px;
+    }
+
+    .status {
+        font-size: 8px;
+        padding: 8px;
+    }
+
+    .checker-card {
+        padding: 20px;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    footer {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+.strength-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+#scoreDisplay {
+    color: #6ee7b7;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.strength-bar {
+    width: 100%;
+    height: 9px;
+    background: #263348;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-top: 18px;
+}
+
+#strengthFill {
+    width: 0%;
+    height: 100%;
+    background: #34d399;
+    border-radius: 20px;
+    transition: width 0.4s ease, background 0.4s ease;
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-wrapper input {
+    padding-right: 75px;
+}
+
+#togglePassword {
+    position: absolute;
+    right: 10px;
+    width: auto;
+    margin: 0;
+    padding: 7px 9px;
+    background: transparent;
+    color: #6ee7b7;
+    font-size: 11px;
+    border: none;
+}
+
+#togglePassword:hover {
+    background: #173b34;
+    transform: none;
+}
+
+.recommendations-panel {
+    margin-top: 20px;
+    background: #131f30;
+    border: 1px solid #263348;
+    border-radius: 15px;
+    padding: 22px;
+}
+
+.recommendations-panel h3 {
+    font-size: 14px;
+    margin-bottom: 18px;
+}
+
+#recommendations {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+#recommendations li {
+    font-size: 12px;
+    color: #cbd5e1;
+    line-height: 1.5;
+}
+
+.recommendation-good {
+    color: #6ee7b7 !important;
+}
+
+.recommendation-warning {
+    color: #fbbf24 !important;
+}

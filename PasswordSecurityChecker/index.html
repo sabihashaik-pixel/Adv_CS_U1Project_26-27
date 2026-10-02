@@ -1,19 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <title>Password Security Checker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SecureCheck | Password Security</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-<h1>Password Security Checker</h1>
-<p>Enter a password to check its security</p>
-<input type="password" id="password">
-<button id="analyzeButton"> Analyze Password</button>
-<p id="result"></p>
-<script src="script.js"></script>
-</body>
 
+<main class="app-container">
+
+    <header class="navbar">
+        <div class="brand">
+            <div class="brand-icon">🛡</div>
+
+            <div>
+                <h2>SECURE<span>//</span>CHECK</h2>
+                <p>CYBERSECURITY TOOL</p>
+            </div>
+        </div>
+
+        <span class="status">● SYSTEM ONLINE</span>
+    </header>
+
+    <section class="hero">
+        <p class="eyebrow">PASSWORD SECURITY ANALYSIS</p>
+
+        <h1>Protect your <span>digital identity.</span></h1>
+
+        <p class="hero-description">
+            Evaluate your password strength and identify
+            potential security risks.
+        </p>
+    </section>
+
+    <section class="checker-card">
+
+        <div class="card-heading">
+            <div>
+                <h2>Password Analyzer</h2>
+                <p>Enter a password to begin analysis.</p>
+            </div>
+
+            <span class="lock-icon">🔒</span>
+        </div>
+
+        <label for="password">YOUR PASSWORD</label>
+
+        <div class="input-wrapper">
+            <input
+                    type="password"
+                    id="password"
+                    placeholder="Enter a test password"
+                    autocomplete="off"
+            >
+
+            <button type="button" id="togglePassword">
+                Show
+            </button>
+        </div>
+
+        <button id="analyzeButton">
+            Analyze Password <span>→</span>
+        </button>
+
+        <div class="result-panel">
+            <p class="result-label">ANALYSIS RESULT</p>
+
+            <div class="strength-heading">
+                <p id="result">Your results will appear here.</p>
+                <span id="scoreDisplay">0/10</span>
+            </div>
+
+            <div class="strength-bar">
+                <div id="strengthFill"></div>
+            </div>
+        </div>
+
+    </section>
+
+    <div class="recommendations-panel">
+
+        <h3>Security Recommendations</h3>
+
+        <ul id="recommendations">
+            <li>Analyze a password to see recommendations.</li>
+        </ul>
+
+    </div>
+    <section class="info-grid">
+
+        <article class="info-card">
+            <div class="info-icon">◈</div>
+            <h3>Strength Analysis</h3>
+            <p>
+                Checks password length and character
+                variety using your scoring system.
+            </p>
+        </article>
+
+        <article class="info-card">
+            <div class="info-icon">⌕</div>
+            <h3>Breach Detection</h3>
+            <p>
+                A planned privacy-conscious lookup
+                against a known compromised-password dataset.
+            </p>
+            <span class="coming-soon">API INTEGRATION PENDING</span>
+        </article>
+
+    </section>
+
+    <footer>
+        <p>SECURECHECK © 2026</p>
+        <p>Educational cybersecurity project</p>
+    </footer>
+
+</main>
+
+<script src="script.js"></script>
+
+</body>
 </html>
