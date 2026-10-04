@@ -94,11 +94,7 @@ analyzeButton.addEventListener("click",  async function() {
 
 
 
-    console.log(isLongEnough);
-    console.log(uppercase);
-    console.log(lowercase);
-    console.log(hasNumber);
-    console.log(hasSpecial);
+
 
     //
     let score = 0;
@@ -108,7 +104,7 @@ analyzeButton.addEventListener("click",  async function() {
         score++;
     }
 
-    console.log(score);
+
 
     if (uppercase) {
         score++;
@@ -130,7 +126,7 @@ analyzeButton.addEventListener("click",  async function() {
         score++;
     }
 
-    console.log(score)
+
 
 
     let strength;
