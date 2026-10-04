@@ -6,15 +6,41 @@ const scoreDisplay = document.querySelector("#scoreDisplay");
 const strengthFill = document.querySelector("#strengthFill");
 const togglePassword = document.querySelector("#togglePassword");
 const recommendations = document.querySelector("#recommendations");
+const breachStatus = document.querySelector("#breachStatus");
+const breachCount = document.querySelector("#breachCount");
 
 analyzeButton.addEventListener("click",  async function() {
     const password = passwordInput.value;
 
     const hashedPassword = await hashPassword(password);
 
-    console.log("SHA-1 Hash:", hashedPassword);
+// Check the hash against the breach database
+    const breachResult = await checkPasswordBreach(hashedPassword);
 
-    console.log(password);
+    if (breachResult.breached === true) {
+        breachStatus.textContent =
+            "⚠ This password was found in known breach records.";
+
+        breachCount.textContent =
+            `FOUND ${breachResult.count} TIMES`;
+
+    } else if (breachResult.breached === false) {
+        breachStatus.textContent =
+            "✓ No match was found in the known breach database.";
+
+        breachCount.textContent =
+            "NO MATCH FOUND";
+
+    } else {
+        breachStatus.textContent =
+            "Breach status could not be checked.";
+
+        breachCount.textContent =
+            "CHECK UNAVAILABLE";
+    }
+
+
+    console.log("Breach result:", breachResult);
     console.log(password.length);
 
     const isLongEnough=checkLength(password);
@@ -24,6 +50,15 @@ analyzeButton.addEventListener("click",  async function() {
     const hasSpecial = hasSpecialCharacter(password);
 
     let feedback = [];
+    if (breachResult.breached === true) {
+        feedback.push(
+            `⚠ Password found in known breaches (${breachResult.count} occurrences). Choose a different password.`
+        );
+    } else if (breachResult.breached === false) {
+        feedback.push("✓ No match found in the known breach database.");
+    } else {
+        feedback.push("⚠ Breach status could not be checked. Try again later.");
+    }
 
     if (isLongEnough) {
         feedback.push("✓ Password meets the 16-character requirement.");
@@ -143,7 +178,7 @@ function hasNumbers(password) {
 
 
 function hasSpecialCharacter(password) {
-    return /[!@#$%^&*]/.test(password);
+    return /[^A-Za-z0-9\s]/.test(password);
 }
 
 async function hashPassword(password) {
@@ -158,6 +193,63 @@ async function hashPassword(password) {
     return hashHex.toUpperCase();
 
 }
+    async function checkPasswordBreach(hashedPassword) {
+        try {
+            // Separate the hash into a 5-character prefix and remaining suffix
+            const prefix = hashedPassword.slice(0, 5);
+            const suffix = hashedPassword.slice(5);
+
+            // Request matching hash records from the API
+            const response = await fetch(
+                `https://api.pwnedpasswords.com/range/${prefix}`,
+                {
+                    headers: {
+                        "Add-Padding": "true"
+                    }
+                }
+            );
+
+            if (!response.ok) {
+                throw new Error("API request failed");
+            }
+
+            // Read the returned list of matching hashes
+            const data = await response.text();
+
+            // Find whether our hash suffix appears in the response
+            const matchingLine = data
+                .split(/\r?\n/)
+                .find(line => line.split(":")[0].trim() === suffix);
+
+            if (matchingLine) {
+                const count = Number(matchingLine.split(":")[1].trim());
+
+                return {
+                    breached: true,
+                    count: count
+                };
+            }
+
+            return {
+                breached: false,
+                count: 0
+            };
+
+        } catch (error) {
+            console.error("Breach check failed:", error);
+
+            return {
+                breached: null,
+                count: 0
+            };
+        }
+    }
+
+
+
+
+
+
 
 togglePassword.addEventListener("click", function() {
 
@@ -170,3 +262,4 @@ togglePassword.addEventListener("click", function() {
     }
 
 });
+

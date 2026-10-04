@@ -18,7 +18,7 @@
             <div class="brand-icon">🛡</div>
 
             <div>
-                <h2>SECURE<span>//</span>CHECK</h2>
+                <h2>SECURE<span>/</span>CHECK</h2>
                 <p>CYBERSECURITY TOOL</p>
             </div>
         </div>
@@ -95,21 +95,33 @@
 
         <article class="info-card">
             <div class="info-icon">◈</div>
-            <h3>Strength Analysis</h3>
-            <p>
-                Checks password length and character
-                variety using your scoring system.
-            </p>
-        </article>
+            <h3>Security Criteria</h3>
 
+            <p>
+                SecureCheck evaluates five password security criteria:
+            </p>
+
+            <ul class="criteria-list">
+                <li>16+ characters</li>
+                <li>Uppercase letters</li>
+                <li>Lowercase letters</li>
+                <li>Numbers</li>
+                <li>Special characters</li>
+            </ul>
+
+            <span class="criteria-score">
+        2 POINTS EACH · 10 POINTS MAX
+    </span>
+        </article>
         <article class="info-card">
             <div class="info-icon">⌕</div>
             <h3>Breach Detection</h3>
-            <p>
-                A planned privacy-conscious lookup
-                against a known compromised-password dataset.
+            <p id="breachStatus">
+                Enter a password to check its breach status.
             </p>
-            <span class="coming-soon">API INTEGRATION PENDING</span>
+            <span class="coming-soon" id="breachCount">
+        AWAITING ANALYSIS
+    </span>
         </article>
 
     </section>

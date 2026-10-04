@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
 * {
@@ -383,4 +384,80 @@ footer {
 
 .recommendation-warning {
     color: #fbbf24 !important;
+}
+
+/* BREACH DETECTION */
+
+#breachStatus {
+    line-height: 1.7;
+    margin-top: 5px;
+    color: #94a3b8;
+}
+
+#breachCount {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border: 1px solid transparent;
+}
+
+/* Password found in breach records */
+
+#breachCount.breached {
+    color: #f87171;
+    background: rgba(239, 68, 68, 0.12);
+    border-color: rgba(239, 68, 68, 0.3);
+}
+
+/* No match found */
+
+#breachCount.clear {
+    color: #6ee7b7;
+    background: rgba(52, 211, 153, 0.12);
+    border-color: rgba(52, 211, 153, 0.3);
+}
+
+/* API unavailable */
+
+#breachCount.unavailable {
+    color: #fbbf24;
+    background: rgba(245, 158, 11, 0.12);
+    border-color: rgba(245, 158, 11, 0.3);
+}
+
+/* SECURITY CRITERIA */
+
+.criteria-list {
+    list-style: none;
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.criteria-list li {
+    color: #cbd5e1;
+    font-size: 11px;
+    padding-left: 12px;
+    position: relative;
+}
+
+.criteria-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #34d399;
+}
+
+.criteria-score {
+    display: inline-block;
+    margin-top: 16px;
+    color: #6ee7b7;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1px;
 }
