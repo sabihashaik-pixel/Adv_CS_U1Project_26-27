@@ -40,8 +40,6 @@ analyzeButton.addEventListener("click",  async function() {
     }
 
 
-    console.log("Breach result:", breachResult);
-    console.log(password.length);
 
     const isLongEnough=checkLength(password);
     const uppercase= hasUppercase(password);
